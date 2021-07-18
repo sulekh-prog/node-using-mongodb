@@ -8,9 +8,14 @@ const PORT = 4000;
 // bodyparser setup
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-const URL =
-  "mongodb+srv://sulekh:sulekh123@cluster0.q3yx2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose.Promise = global.Promise;
+// const URL =
+//   "mongodb+srv://sulekh:sulekh123@cluster0.q3yx2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+mongoose.connect("mongodb://localhost/productsdb", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 app.get("/", (req, res) => res.send(`Store server running on port ${PORT}`));
 
