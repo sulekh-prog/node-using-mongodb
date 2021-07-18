@@ -12,10 +12,13 @@ app.use(bodyParser.json());
 mongoose.Promise = global.Promise;
 // const URL =
 //   "mongodb+srv://sulekh:sulekh123@cluster0.q3yx2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-mongoose.connect("mongodb://localhost/productdb", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://sulekh:sulekh123@cluster0.q3yx2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 app.get("/", (req, res) => res.send(`Store server running on port ${PORT}`));
 
