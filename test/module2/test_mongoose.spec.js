@@ -16,7 +16,7 @@ describe("Mongo tests @mongo", function () {
   it("Mongoose connected", function (done) {
     try {
       expect(fs.readFileSync("index.js").toString()).to.contain(
-        "mongoose.connect('mongodb+srv://sulekh:sulekh123@cluster0.q3yx2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'"
+        "mongoose.connect('mongodb://localhost/productsdb'"
       );
       done();
     } catch (error) {
