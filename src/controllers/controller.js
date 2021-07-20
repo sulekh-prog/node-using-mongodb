@@ -13,3 +13,21 @@ export const addNewProduct = (req, res) => {
     }
   });
 };
+
+export getProducts = (req, res) => {
+    if(Product){
+        res.send(Product.find());
+    }else{
+        res.send(err);
+    }
+}
+
+export getProductWithID = (req, res) => {
+
+    if(err) {
+        res.send (err)
+
+    }else{
+
+    }
+}
