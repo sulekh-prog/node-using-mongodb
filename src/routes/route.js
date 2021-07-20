@@ -1,5 +1,7 @@
 import { addNewProduct } from "../controllers/controller";
 
 const routes = (app) => {
-  app.get("/products");
+  app.get("/products", (req, res) => {});
 };
+
+module.exports = routes;
