@@ -3,11 +3,17 @@ import { getProducts } from "../controllers/controller";
 import { getProductWithID } from "../controllers/controller";
 
 const routes = (app) => {
-  app.get("/products", (req, res) => {});
+  app
+    .route("/products")
+    //get multiple products
+
+    .get(getProducts);
+
+  app
+    .route("/products/:ProductID")
+    //get a specific product with the id,  ProductId should be the same as in the controllers
+    .get(getProductWithID);
 };
+// module.exports = routes;
 
-app.get("/products/:ProductID", (req, res) => {});
-
-module.exports = routes;
-
-// export default routes;
+export default routes;
