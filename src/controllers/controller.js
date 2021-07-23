@@ -14,7 +14,7 @@ export const addNewProduct = (req, res) => {
   });
 };
 
-export getProducts = (req, res) => {
+export const getProducts = (req, res) => {
    Product.find({},(err, Product) => {  //find all the products wwith the mongoose function find();
        if (err) {
            res.send(err);
@@ -23,7 +23,7 @@ export getProducts = (req, res) => {
    })
 };
 
-export getProductWithID = (req, res) => {
+export const getProductWithID = (req, res) => {
     // similar function find product with the mongoose function findById
     Product.findById(req.params.Product.id,(err, Product) => {
         if (err) {
@@ -35,17 +35,24 @@ export getProductWithID = (req, res) => {
     
 };
 
-export updateProduct = (req, res) => {
-  Product.findOneAndUpdate(_id:req.params:ProductId = req.body.Product.);
-  mongoose.set('returnOriginal', false);
-  if(err){
-    res.send(err);
-  }
-  res.send(Product)\
-
+export const updateProduct = (req, res) => {
+  Product.findOneAndUpdate({_id: req.params.ProductId}, req.body, {new: true, useFindAndModify: false},(err, Product) => {
+    if(err){
+      res.send(err);
+    }
+    res.send(Product)
+  
+  });
+ 
+  
 };
 export const deleteProduct = (req, res) => {
 
-  product.deleteOne(_id:req.params.ProductsID);
-  
+  product.deleteOne({_id: req.params.ProductsID},(err, Product){
+if(err){
+  res.send(err);
+}
+res.json(message: 'successfully deleted product')
+  })
+
 }
