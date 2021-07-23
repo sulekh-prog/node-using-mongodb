@@ -1,7 +1,8 @@
 import { addNewProduct } from "../controllers/controller";
 import { getProducts } from "../controllers/controller";
 import { getProductWithID } from "../controllers/controller";
-
+import { updateProduct } from "../controllers/controller";
+import { delete} from "../controllers/controller";
 const routes = (app) => {
   app
     .route("/products")
@@ -15,5 +16,13 @@ const routes = (app) => {
     .get(getProductWithID);
 };
 // module.exports = routes;
+
+app.route("/products/:ProductID/", (req, res) => {
+.put(updateProduct)
+});
+app.route('/products/:ProductID/', (req, res) => {
+  .delete(deleteProduct);
+  
+})
 
 export default routes;

@@ -21,7 +21,7 @@ export getProducts = (req, res) => {
        }
        res.json(Product);
    })
-}
+};
 
 export getProductWithID = (req, res) => {
     // similar function find product with the mongoose function findById
@@ -30,8 +30,22 @@ export getProductWithID = (req, res) => {
             res.send(err);
         }
         res.json(Product);
-    })
-    
+    })  
 
     
+};
+
+export updateProduct = (req, res) => {
+  Product.findOneAndUpdate(_id:req.params:ProductId = req.body.Product.);
+  mongoose.set('returnOriginal', false);
+  if(err){
+    res.send(err);
+  }
+  res.send(Product)\
+
+};
+export const deleteProduct = (req, res) => {
+
+  product.deleteOne(_id:req.params.ProductsID);
+  
 }
